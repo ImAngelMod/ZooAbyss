@@ -1,3 +1,0 @@
-displayName = Zoo Abis
-author = ImAngel
-version = 0.1
