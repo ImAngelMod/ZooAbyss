@@ -2,12 +2,12 @@
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.projectiles;
-using ZooAbis.Items;
+using ZooAbyss.Items;
+using ZooAbyss.projectiles;
 
-namespace ZooAbis.Ammo
+namespace ZooAbyss.Ammo
 {
-     public class TranqBulletAmmo : ModItem
+    public class TranqBulletAmmo : ModItem
     {
         public override void SetStaticDefaults()
         {
