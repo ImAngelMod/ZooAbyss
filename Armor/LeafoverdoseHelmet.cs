@@ -1,13 +1,11 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.GameContent.Creative;
-using ZooAbis.Armor;
-using ZooAbis.ButterFlyWeapons;
-using Zooabis.Edits;
-using ZooAbis.Items;
+using Terraria.ID;
+using Terraria.ModLoader;
+using ZooAbyss.Edits;
+using ZooAbyss.Items;
 
-namespace ZooAbis.Armor
+namespace ZooAbyss.Armor
 {
     // The AutoloadEquip attribute automatically attaches an equip texture to this item.
     // Providing the EquipType.Head value here will result in TML expecting a X_Head.png file to be placed next to the item's main texture.
