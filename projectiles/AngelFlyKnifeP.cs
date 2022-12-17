@@ -1,11 +1,9 @@
-﻿using Terraria;
-using System;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using IL.Terraria.GameContent;
-using Microsoft.Xna.Framework;
 
-namespace ZooAbis.projectiles
+namespace ZooAbyss.projectiles
 {
     public class AngelFlyKnifeP : ModProjectile
     {

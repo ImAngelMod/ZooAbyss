@@ -1,15 +1,10 @@
-﻿using Terraria;
-using System;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-using IL.Terraria.GameContent;
-using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
-using ZooAbis.NPCs;
-using Terraria.Audio;
-using Humanizer;
 
-namespace ZooAbis.projectiles
+namespace ZooAbyss.projectiles
 {
     public class TerraFormerP : ModProjectile
     {
