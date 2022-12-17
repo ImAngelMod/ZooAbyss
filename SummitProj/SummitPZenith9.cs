@@ -1,11 +1,8 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using ZooAbis.projectiles;
-using ZooAbis.ButterFlyWeaponsProj;
 
-namespace ZooAbis.SummitProj
+namespace ZooAbyss.SummitProj
 {
     public class SummitPZenith9 : ModProjectile
 

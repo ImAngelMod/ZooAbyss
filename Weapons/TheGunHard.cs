@@ -1,11 +1,11 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Ammo;
-using ZooAbis.projectiles;
-using Microsoft.Xna.Framework;
+using ZooAbyss.Ammo;
+using ZooAbyss.projectiles;
 
-namespace ZooAbis.Weapons
+namespace ZooAbyss.Weapons
 {
     public class TheGunHard : ModItem
     {

@@ -1,12 +1,9 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Ammo;
-using ZooAbis.projectiles;
-using Microsoft.Xna.Framework;
-using System;
+using ZooAbyss.projectiles;
 
-namespace ZooAbis.Weapons
+namespace ZooAbyss.Weapons
 {
     public class FlyKnife : ModItem
     {

@@ -1,11 +1,10 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using ZooAbis.projectiles;
 
 
-namespace ZooAbis.SummitProj
+namespace ZooAbyss.SummitProj
 {
     public class SummitPFerra4: ModProjectile
 

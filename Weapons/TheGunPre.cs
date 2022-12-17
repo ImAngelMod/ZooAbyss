@@ -1,21 +1,19 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Ammo;
-using ZooAbis.projectiles;
-using Microsoft.Xna.Framework;
-using IL.Terraria.Audio;
-using Terraria.Audio;
+using ZooAbyss.Ammo;
+using ZooAbyss.projectiles;
 using SoundStyle = Terraria.Audio.SoundStyle;
 
-namespace ZooAbis.Weapons
+namespace ZooAbyss.Weapons
 {
 	public class TheGunPre : ModItem
 	{
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("TheRIfle Of The JungleSleepers");
+			DisplayName.SetDefault("TheRifle Of The JungleSleepers");
 			Tooltip.SetDefault("use With A special ammo to down a animal.");
 		}
 
@@ -34,7 +32,7 @@ namespace ZooAbis.Weapons
 			Item.shoot = ModContent.ProjectileType<TranqDartP>();
 			Item.useAmmo = ModContent.ItemType<TranqDartAmmo>();
 			Item.shootSpeed = 12;
-            Item.UseSound = new SoundStyle("ZooAbis/Sound/TheGunPreFireSound");
+            Item.UseSound = new SoundStyle("ZooAbyss/Sound/TheGunPreFireSound");
 
         }
 		public override Vector2? HoldoutOffset()

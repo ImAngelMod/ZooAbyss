@@ -2,9 +2,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using ZooAbis.Items;
+using ZooAbyss.Items;
 
-namespace ZooAbis.Tiles
+namespace ZooAbyss.Tiles
 {
     public class SpiderCageTile : ModTile
 

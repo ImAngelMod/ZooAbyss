@@ -1,12 +1,10 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Ammo;
-using Microsoft.Xna.Framework;
-using UtfUnknown.Core.Models.MultiByte.Chinese;
-using ZooAbis.projectiles;
+using ZooAbyss.projectiles;
 
-namespace ZooAbis.Weapons
+namespace ZooAbyss.Weapons
 {
     public class TerraFormer : ModItem   
     {
