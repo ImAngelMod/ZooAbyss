@@ -1,17 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.IO;
-using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ZooAbis.Bosses
+namespace ZooAbyss.Bosses
 {
     
     public enum WormSegmentType
@@ -648,4 +643,5 @@ namespace ZooAbis.Bosses
             WormBody.CommonAI_BodyTail(this);
         }
     }
+    
 }

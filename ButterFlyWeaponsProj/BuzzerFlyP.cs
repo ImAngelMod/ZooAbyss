@@ -2,10 +2,9 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Default;
-using Zooabis.Edits;
+using ZooAbyss.Edits;
 
-namespace ZooAbis.ButterFlyWeaponsProj
+namespace ZooAbyss.ButterFlyWeaponsProj
 {
     public class BuzzerFlyP : ModProjectile
     {

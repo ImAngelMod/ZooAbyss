@@ -1,12 +1,11 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using IL.Terraria.ID;
+using ZooAbyss.Edits;
 using BuffID = Terraria.ID.BuffID;
-using Zooabis.Edits;
 
-namespace ZooAbis.ButterFlyWeaponsProj
+namespace ZooAbyss.ButterFlyWeaponsProj
 {
     public class GuterFlyP : ModProjectile
     {

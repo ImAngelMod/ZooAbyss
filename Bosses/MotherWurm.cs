@@ -1,12 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using System.IO;
+﻿using System.IO;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Bosses;
+using ZooAbyss.Bosses.BossThings;
+using Terraria.GameContent.ItemDropRules;
+using ZooAbyss.Bosses.BossItems;
 
-namespace ZooAbis.Bosses
+namespace ZooAbyss.Bosses
 {
     // These three class showcase usage of the WormHead, WormBody and WormTail classes from Worm.cs
     internal class MotherWurmHead : WormHead
@@ -37,7 +38,16 @@ namespace ZooAbis.Bosses
             NPC.aiStyle = 6;
             NPC.lifeMax = 3000;
             NPC.damage = 50;
+            if (!Main.dedServ)
+            {
+                Music = MusicLoader.GetMusicSlot(Mod, "Sound/Music/MotherWurmBossMusic");
+                
+            }
+            NPC.boss = true;
+
         }
+
+
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -51,6 +61,16 @@ namespace ZooAbis.Bosses
 				new FlavorTextBestiaryInfoElement("MAMA.")
             });
         }
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+            // Do NOT misuse the ModifyNPCLoot and OnKill hooks: the former is only used for registering drops, the latter for everything else
+
+            // Add the treasure bag using ItemDropRule.BossBag (automatically checks for expert mode)
+            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MotherWormBossBag>()));
+
+           
+        }
+
 
         public override void Init()
         {
