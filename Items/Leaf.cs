@@ -1,9 +1,7 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
-using ZooAbis.Tiles;
 
-namespace ZooAbis.Items
+namespace ZooAbyss.Items
 {
     public class Leaf : ModItem
     {

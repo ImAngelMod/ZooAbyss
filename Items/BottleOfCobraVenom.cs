@@ -1,13 +1,10 @@
 ﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Net;
-using Terraria.GameContent.NetModules;
-using Terraria.GameContent.Creative;
-using ZooAbis.Tiles;
 
 
-namespace ZooAbis.Items
+namespace ZooAbyss.Items
 {
     public class BottleOfCobraVenom : ModItem
     {

@@ -1,11 +1,9 @@
 ﻿using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Net;
-using Terraria.GameContent.NetModules;
-using Terraria.GameContent.Creative;
 
-namespace ZooAbis.Items
+namespace ZooAbyss.Items
 {
     public class SpiderVenom : ModItem
     {
@@ -21,7 +19,6 @@ namespace ZooAbis.Items
             Item.width = 8;
             Item.height = 11;
             Item.rare = ItemRarityID.Purple;
-
             Item.maxStack = 10;
             Item.value = Item.buyPrice(silver: 50);
 

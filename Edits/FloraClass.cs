@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using Terraria;
-using Terraria.Localization;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace Zooabis.Edits
+namespace ZooAbyss.Edits
 {
     public class Flora : DamageClass
     {

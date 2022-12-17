@@ -1,9 +1,9 @@
-﻿using Terraria.ID;
-using Terraria;
+﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace ZooAbis.Edits
+namespace ZooAbyss.Edits
 {
     public class WoodenArmorEdit: GlobalItem
     {

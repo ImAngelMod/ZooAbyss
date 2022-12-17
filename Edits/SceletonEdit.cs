@@ -1,11 +1,11 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
-using Terraria;
 using Terraria.ID;
-using ZooAbis.Weapons;
-using ZooAbis.ButterFlyWeapons;
+using Terraria.ModLoader;
+using ZooAbyss.ButterFlyWeapons;
+using ZooAbyss.Weapons;
 
-namespace ZooAbis.Edits
+namespace ZooAbyss.Edits
 {
     public class SceletonEdit : GlobalNPC
     {

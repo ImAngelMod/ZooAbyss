@@ -1,12 +1,11 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader.Utilities;
-using ZooAbis.Items;
+﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
+using ZooAbyss.Items;
 
-namespace ZooAbis.NPCs
+namespace ZooAbyss.NPCs
 {
     public class Spider : ModNPC
     {

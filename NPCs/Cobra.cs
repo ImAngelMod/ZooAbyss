@@ -1,15 +1,11 @@
-﻿using Terraria.ModLoader;
-using Terraria;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader.Utilities;
-using ZooAbis.Items;
+﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
-using ZooAbis.projectiles;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using IL.Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
+using ZooAbyss.Items;
 
-namespace ZooAbis.NPCs
+namespace ZooAbyss.NPCs
 {
     public class Cobra : ModNPC
     {
@@ -34,8 +30,7 @@ namespace ZooAbis.NPCs
             AIType = NPCID.LarvaeAntlion;
             AnimationType = NPCID.Zombie;
             NPC.scale = 0.7f;
-
-
+            
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
@@ -57,9 +52,10 @@ namespace ZooAbis.NPCs
             NPC.velocity.Y = 0;
             NPC.velocity.X = 0;
             NPC.stepSpeed = 100;
-            
+
 
         }
+        
     }
 }
 

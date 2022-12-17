@@ -1,13 +1,10 @@
-﻿using Terraria.ModLoader;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using ZooAbis.Items;
-using ItemDropRule = Terraria.GameContent.ItemDropRules.ItemDropRule;
-using ZooAbis.ButterFlyWeapons;
+using ZooAbyss.ButterFlyWeapons;
 
-namespace ZooAbis.NPCs
+namespace ZooAbyss.NPCs
 {
     public class RustyButterFlyNPC : ModNPC
     {
@@ -32,6 +29,8 @@ namespace ZooAbis.NPCs
             NPC.lifeMax = 10;
             NPC.value = 0;
             NPC.chaseable = false;
+            
+
         }
 
         public override void AI()

@@ -5,11 +5,11 @@ using ZooAbyss.Tiles;
 
 namespace ZooAbyss.Items
 {
-    public class SpiderCage : ModItem
+    public class WormTrophy : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spider Cage");
+            DisplayName.SetDefault("WurmTrophy");
             SacrificeTotal = 1;
         }
 
@@ -22,18 +22,12 @@ namespace ZooAbyss.Items
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<SpiderCageTile>();
+            Item.createTile = ModContent.TileType<WormTrophyTile>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 8; 
+            Item.rare = 8;
         }
 
-        public override void AddRecipes()
-        {
-            Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient((ItemID.Terrarium), 1);
-            recipe.AddIngredient(ModContent.ItemType<SpiderItem>(), 1);
-            recipe.Register();
-        }
+       
     }
 }

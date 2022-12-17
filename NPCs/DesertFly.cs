@@ -1,12 +1,10 @@
-﻿using Terraria.ModLoader;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using ZooAbis.Items;
-using ItemDropRule = Terraria.GameContent.ItemDropRules.ItemDropRule;
+using ZooAbyss.Items;
 
-namespace ZooAbis.NPCs
+namespace ZooAbyss.NPCs
 {
     public class DesertFly : ModNPC
     {

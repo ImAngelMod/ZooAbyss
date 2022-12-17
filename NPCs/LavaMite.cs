@@ -1,15 +1,12 @@
-﻿using IL.Terraria.GameContent.ItemDropRules;
-using On.Terraria.GameContent.ItemDropRules;
-using Terraria;
+﻿using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using ZooAbis.Items;
+using ZooAbyss.Items;
 using ItemDropRule = Terraria.GameContent.ItemDropRules.ItemDropRule;
 
-namespace ZooAbis.NPCs
+namespace ZooAbyss.NPCs
 {
     public class LavaMite : ModNPC
     {
@@ -29,7 +26,7 @@ namespace ZooAbis.NPCs
             NPC.value = 10f;
             NPC.aiStyle = 7;
             NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = new SoundStyle("ZooAbis/Sound/LavaMiteDeath");
+            NPC.DeathSound = new SoundStyle("ZooAbyss/Sound/LavaMiteDeath");
             AIType = NPCID.CochinealBeetle;
             AnimationType = NPCID.CochinealBeetle;
             NPC.scale = 0.8f;
