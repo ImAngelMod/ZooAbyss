@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace ZooAbyss.Bosses
 {
-    
+
     public enum WormSegmentType
     {
         /// <summary>
@@ -57,7 +57,6 @@ namespace ZooAbyss.Bosses
         /// <summary>
         /// The NPC instance of the head segment for this worm.
         /// </summary>
-        public NPC HeadSegment => Main.npc[NPC.realLife];
 
         /// <summary>
         /// The NPC instance of the segment that this segment is following (ai[1]).  For head segments, this property always returns <see langword="null"/>.
@@ -203,9 +202,8 @@ namespace ZooAbyss.Bosses
 
             Main.npc[oldLatest].ai[0] = latestNPC;
 
-            NPC latest = Main.npc[latestNPC];
             // NPC.realLife is the whoAmI of the NPC that the spawned NPC will share its health with
-            latest.realLife = NPC.whoAmI;
+
 
             return latestNPC;
         }
@@ -234,7 +232,7 @@ namespace ZooAbyss.Bosses
                     // So, here we assign the NPC.realLife value.
                     // The NPC.realLife value is mainly used to determine which NPC loses life when we hit this NPC.
                     // We don't want every single piece of the worm to have its own HP pool, so this is a neat way to fix that.
-                    NPC.realLife = NPC.whoAmI;
+
                     // latestNPC is going to be used in SpawnSegment() and I'll explain it there.
                     int latestNPC = NPC.whoAmI;
 
@@ -253,7 +251,7 @@ namespace ZooAbyss.Bosses
                     else
                     {
                         // Spawn the body segments like usual
-                        while (distance > 0)
+                        while (distance > 1)
                         {
                             latestNPC = SpawnSegment(source, BodyType, latestNPC);
                             distance--;
@@ -266,30 +264,7 @@ namespace ZooAbyss.Bosses
                     NPC.netUpdate = true;
 
                     // Ensure that all of the segments could spawn.  If they could not, despawn the worm entirely
-                    int count = 0;
-                    for (int i = 0; i < Main.maxNPCs; i++)
-                    {
-                        NPC n = Main.npc[i];
-
-                        if (n.active && (n.type == Type || n.type == BodyType || n.type == TailType) && n.realLife == NPC.whoAmI)
-                            count++;
-                    }
-
-                    if (count != randomWormLength)
-                    {
-                        // Unable to spawn all of the segments... kill the worm
-                        for (int i = 0; i < Main.maxNPCs; i++)
-                        {
-                            NPC n = Main.npc[i];
-
-                            if (n.active && (n.type == Type || n.type == BodyType || n.type == TailType) && n.realLife == NPC.whoAmI)
-                            {
-                                n.active = false;
-                                n.netUpdate = true;
-                            }
-                        }
-                    }
-
+                   
                     // Set the player target for good measure
                     NPC.TargetClosest(true);
                 }
@@ -596,17 +571,7 @@ namespace ZooAbyss.Bosses
                 worm.NPC.timeLeft = 10;
 
             NPC following = worm.NPC.ai[1] >= Main.maxNPCs ? null : worm.FollowingNPC;
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                // Some of these conditions are possble if the body/tail segment was spawned individually
-                // Kill the segment if the segment NPC it's following is no longer valid
-                if (following is null || !following.active || following.friendly || following.townNPC || following.lifeMax <= 5)
-                {
-                    worm.NPC.life = 0;
-                    worm.NPC.HitEffect(0, 10);
-                    worm.NPC.active = false;
-                }
-            }
+           
 
             if (following is not null)
             {
@@ -643,5 +608,5 @@ namespace ZooAbyss.Bosses
             WormBody.CommonAI_BodyTail(this);
         }
     }
-    
+
 }

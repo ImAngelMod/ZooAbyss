@@ -6,6 +6,9 @@ using Terraria.ModLoader;
 using ZooAbyss.Bosses.BossThings;
 using Terraria.GameContent.ItemDropRules;
 using ZooAbyss.Bosses.BossItems;
+using ZooAbyss.Bosses;
+using Microsoft.Xna.Framework;
+using System;
 
 namespace ZooAbyss.Bosses
 {
@@ -20,7 +23,7 @@ namespace ZooAbyss.Bosses
         {
             DisplayName.SetDefault("Mother Wurm");
             NPC.BossBar = ModContent.GetInstance<MotherWurmBossBar>();
-            
+
             /*var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             { // Influences how the NPC looks in the Bestiary
                 CustomTexturePath = "ExampleMod/Content/NPCs/ExampleWorm_Bestiary", // If the NPC is multiple parts like a worm, a custom texture for the Bestiary is encouraged.
@@ -41,7 +44,7 @@ namespace ZooAbyss.Bosses
             if (!Main.dedServ)
             {
                 Music = MusicLoader.GetMusicSlot(Mod, "Sound/Music/MotherWurmBossMusic");
-                
+
             }
             NPC.boss = true;
 
@@ -68,7 +71,7 @@ namespace ZooAbyss.Bosses
             // Add the treasure bag using ItemDropRule.BossBag (automatically checks for expert mode)
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MotherWormBossBag>()));
 
-           
+
         }
 
 
@@ -78,7 +81,7 @@ namespace ZooAbyss.Bosses
             // If you want the segment length to be constant, set these two properties to the same value
             MinSegmentLength = 100;
             MaxSegmentLength = 100;
-           
+
             CommonWormInit(this);
         }
 
@@ -102,34 +105,54 @@ namespace ZooAbyss.Bosses
         }
 
     }
-    
+
 
     internal class MotherWurmBody : WormBody
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mother Wurm");
-
-            /*NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
-            {
-                Hide = true // Hides this NPC from the Bestiary, useful for multi-part NPCs whom you only want one entry.
-            };
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);*/
         }
 
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.DiggerBody);
             NPC.aiStyle = 6;
+            NPC.lifeMax = 500;
         }
 
         public override void Init()
         {
             MotherWurmHead.CommonWormInit(this);
         }
+
+        public override void OnKill()
+        {
+
+
+            if (NPC.life == 0)
+            {
+                // spawn two new segments on either side of this segment
+                int newType = ModContent.NPCType<MotherWurmBody>();
+                int newLength = (int)(NPC.width * NPC.scale);
+                int newDirection = NPC.direction;
+                float spawnOffset = (newDirection == 1) ? NPC.width / 2f : -NPC.width / 2f;
+                Vector2 spawnPosition = NPC.Center + new Vector2(spawnOffset, 0f);
+                MotherWurmTail.SpawnWormSegment(this, newType, newLength, newDirection, spawnPosition);
+
+                spawnOffset *= -1;
+                spawnPosition = NPC.Center + new Vector2(spawnOffset, 0f);
+                MotherWurmTail.SpawnWormSegment(this, newType, newLength, -newDirection, spawnPosition);
+
+                // kill this segment
+                NPC.life = 0;
+                NPC.checkDead();
+            }
+        }
     }
 
-    internal class MotherWurmTail : WormTail
+
+        internal class MotherWurmTail : WormTail
     {
         public override void SetStaticDefaults()
         {
@@ -142,15 +165,22 @@ namespace ZooAbyss.Bosses
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);*/
         }
 
-        public override void SetDefaults()
+        public override void SetDefaults() 
         {
             NPC.CloneDefaults(NPCID.DiggerTail);
             NPC.aiStyle = 6;
+            NPC.lifeMax = 500;
         }
 
         public override void Init()
         {
             MotherWurmHead.CommonWormInit(this);
+        }
+
+        public static void SpawnWormSegment(MotherWurmBody motherWurmBody, int newType, int newLength, int newDirection, Vector2 spawnPosition)
+        {
+            int tailType = ModContent.NPCType<MotherWurmTail>(); // get the NPC ID for the tail segment
+            int tailIndex = NPC.NewNPC((Terraria.DataStructures.IEntitySource)Main.LocalPlayer, (int)spawnPosition.X, (int)spawnPosition.Y, tailType, 0, 0, 0f, 0f, 0f, 255); // spawn the tail segment NPC
         }
     }
 }
