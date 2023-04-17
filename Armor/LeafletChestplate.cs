@@ -13,24 +13,29 @@ namespace ZooAbyss.Armor
     {
         public override void SetStaticDefaults()
         {
-           
+            //Item Name, Flavor Text
             DisplayName.SetDefault("LeafOverdoseBreastplate");
             Tooltip.SetDefault("A living place for creatures and plants alike.");
-
+            // Journey Mode sacrifice/research amount.
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
+            //Stats:
+            //Display Stats
             Item.width = 18; // Width of the item
             Item.height = 18; // Height of the item
+            //Combat Stats
+            Item.defense = 3; // The amount of defense the item will give when equipped
+            //Noncombat Stats
             Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
             Item.rare = ItemRarityID.Green; // The rarity of the item
-            Item.defense = 3; // The amount of defense the item will give when equipped
         }
         
         public override void UpdateEquip(Player player)
         {
+            //Increases the following stats by the following amounts.
             player.statDefense = 3;
             
 
@@ -39,6 +44,7 @@ namespace ZooAbyss.Armor
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
+            //Recipies.
             CreateRecipe(1)
                 .AddIngredient(ItemID.Wood, 10)
                 .AddIngredient(ModContent.ItemType<Leaf>(), 5)
