@@ -14,9 +14,10 @@ namespace ZooAbyss.Armor
     {
         public override void SetStaticDefaults()
         {
+            // Item Name, Flavor Text
             DisplayName.SetDefault("LeafOverdoseMask");
             Tooltip.SetDefault("Get Your Head in the Trees.");
-
+            // Journey Mode sacrifice/research amount.
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
 
             // If your head equipment should draw hair while drawn, use one of the following:
@@ -29,35 +30,43 @@ namespace ZooAbyss.Armor
 
         public override void SetDefaults()
         {
+            //Stats:
+            //Display Stats
             Item.width = 18; // Width of the item
             Item.height = 18; // Height of the item
+            //Combat Stats
+            Item.defense = 2; // The amount of defense the item will give when equipped
+            //Noncombat Stats
             Item.value = Item.sellPrice(gold: 1); // How many coins the item is worth
             Item.rare = ItemRarityID.Green; // The rarity of the item
-            Item.defense = 2; // The amount of defense the item will give when equipped
+            
         }
 
         // IsArmorSet determines what armor pieces are needed for the setbonus to take effect
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
+            //Is set complete?
             return body.type == ModContent.ItemType<LeafletChestplate>() && legs.type == ModContent.ItemType<LeafoverdoseGreaves>();
         }
 
         // UpdateArmorSet allows you to give set bonuses to the armor.
         public override void UpdateArmorSet(Player player)
         {
+            //If set complete (Refer to IsArmorSet), apply following bonuses:
             player.setBonus = "Increases Fauna dealt damage by 5%"; // This is the setbonus tooltip
             player.GetDamage<Flutter>() += 0.05f;
             player.moveSpeed += 0.1f;
         }
         public override void UpdateEquip(Player player)
         {
-
+            //Increases the following stats by the following amounts.
             player.statDefense += 2;
         }
 
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
         public override void AddRecipes()
         {
+            //Recipies.
             CreateRecipe(1)
                 .AddIngredient(ItemID.Wood, 8)
                 .AddIngredient(ModContent.ItemType<Leaf>(), 3)
